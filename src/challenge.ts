@@ -39,8 +39,15 @@ function addReview(
   comment: string
 ): ReviewedBook {
   // write your code here...
+  const newReview: Review = { reviewer, comment };
+  const updatedReviews = book.reviews
+    ? [...book.reviews, newReview]
+    : [newReview];
 
-  return book;
+  return {
+    ...book,
+    reviews: updatedReviews,
+  };
 }
 
 export { addReview, Review, ReviewedBook };
